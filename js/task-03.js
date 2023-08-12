@@ -15,10 +15,20 @@ const images = [
 
 const ulEl = document.querySelector(".gallery");
 
-images.forEach((elem) => {
-  ulEl.insertAdjacentHTML(
-    "afterbegin",
-    `<li><img src = "${elem.url}" alt = "${elem.alt}" width = "300" height = "200"/></li>`
-  );
-  ulEl.style.display = "flexbox";
-});
+const imagesOfGallary = images
+  .map(
+    (elem) =>
+      `<li><img src = "${elem.url}" alt = "${elem.alt}" width = "300" height = "200"/></li>`
+  )
+  .join("");
+ulEl.style.display = "flexbox";
+
+ulEl.insertAdjacentHTML("afterbegin", imagesOfGallary);
+
+// images.forEach((elem) => {
+//   ulEl.insertAdjacentHTML(
+//     "afterbegin",
+//     `<li><img src = "${elem.url}" alt = "${elem.alt}" width = "300" height = "200"/></li>`
+//   );
+//   ulEl.style.display = "flexbox";
+// });
